@@ -44,6 +44,7 @@ float available_chocosyrup = 200;
 
 // Function prototypes
 int adminMode();
+int userMode();
 
 //Main menu
 int main(){
@@ -73,6 +74,34 @@ int main(){
     return 0;
 }
 
+//Coffee Mode 
+int Coffee_Choice(){;
+while (1){
+       printf("\n Choose your coffee:");
+       printf("1. Espresso: %.2f aed \n ", E_cost); 
+       printf("2. Cappuccino: %.2f aed \n ", C_cost);
+       printf("3. Mocha: %.2f aed \n ", M_cost);
+       printf("4. Exit ");
+       printf("Enter your option: ");
+       scanf("%d", &Coffee_Choice);
+
+       switch (Coffee_Choice) {
+        case 1: 
+        if ( available_coffee >= E_beans && available_water >= E_water){
+         printf("Ordering Espresso! Price: %.2f", E_cost);
+        break 
+        }
+        else
+        printf("Sorry, we're out of service temporarily ");
+        case 2:
+        if( )
+
+       }
+}
+
+
+
+}
 // Admin Mode 
 int adminMode(){
     char user_pass[50];
