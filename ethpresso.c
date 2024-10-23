@@ -4,7 +4,7 @@
 #include <stdio.h>
 #include <math.h>
 #include <stdlib.h>  
-#include <time.h>    
+   
 
 // Variables of different drinks
 #define E_beans 8
@@ -47,7 +47,6 @@ void handlePayment(float cost);
 
 // Main menu
 int main() {
-    srand(time(0)); 
     int choice;
     while (1) {
         printf("\n\n*MENU*\n");
