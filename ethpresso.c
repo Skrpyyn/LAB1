@@ -3,9 +3,8 @@
 // Preprocessing
 #include <stdio.h>
 #include <math.h>
-#include <string.h>
-#include <stdlib.h>  // For rand() and srand()
-#include <time.h>    // For seeding the random function
+#include <stdlib.h>  
+#include <time.h>    
 
 // Variables of different drinks
 #define E_beans 8
@@ -26,7 +25,7 @@ float C_cost = 4.5;
 #define M_syrup 30
 float M_cost = 5.5;
 
-#define password "Admin123"
+#define password 230505  
 float total_amount = 0;
 
 #define threshhold_coffee 20
@@ -43,12 +42,12 @@ float available_chocosyrup = 200;
 // Function prototypes
 int adminMode();
 int userMode();
-void replenishIngredients(); // Replenish ingredients with random values
-void handlePayment(float cost); // Handles user payments
+void replenishIngredients(); 
+void handlePayment(float cost); 
 
 // Main menu
 int main() {
-    srand(time(0)); // Seed the random function
+    srand(time(0)); 
     int choice;
     while (1) {
         printf("\n\n*MENU*\n");
@@ -163,12 +162,12 @@ void handlePayment(float cost) {
 
 // Admin Mode
 int adminMode() {
-    char user_pass[50];
+    int user_pass;
     int mode;
     printf("Enter admin password: ");
-    scanf("%s", user_pass);
+    scanf("%d", &user_pass);
 
-    if (strcmp(user_pass, password) == 0) {
+    if (user_pass == password) {
         printf("Logged in successfully \n");
 
         while (1) {
@@ -176,7 +175,8 @@ int adminMode() {
             printf("1. Display quantity and sales \n");
             printf("2. Replenish Ingredients\n");
             printf("3. Change Coffee Price\n");
-            printf("4. Exit\n");
+            printf("4. Reset Total Sales\n");  
+            printf("5. Exit\n");
             printf("Enter choice: ");
             scanf("%d", &mode);
 
@@ -191,7 +191,7 @@ int adminMode() {
                     break;
 
                 case 2:
-                    replenishIngredients(); // Call the replenishment function
+                    replenishIngredients(); 
                     break;
 
                 case 3: {
@@ -237,8 +237,14 @@ int adminMode() {
                 }
 
                 case 4:
+                    printf("Resetting total sales to 0.\n");
+                    total_amount = 0; // Reset the total sales to zero
+                    break;
+
+                case 5:
                     printf("Exiting admin mode...\n");
                     return 0;  // Exit admin mode
+
                 default:
                     printf("Invalid input\n");
             }
